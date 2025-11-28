@@ -1,5 +1,5 @@
-import styles from "../Common/UserProfile.module.css";
 import { useState } from "react";
+import styles from "../../styles/common.module.css";
 
 export const ShoppingCart = () => {
   const [item, setItem] = useState([
@@ -14,7 +14,7 @@ export const ShoppingCart = () => {
   const removeItem = (itemId) =>
     setItem((prev) => prev.filter(({ id }) => id !== itemId));
 
-  const increaseQty = (itemId) => {
+  const handleIncreaseQuantity = (itemId) => {
     setItem((prev) =>
       prev.map((item) =>
         item.id === itemId
@@ -40,7 +40,7 @@ export const ShoppingCart = () => {
               <div className={styles.buttonsProduct}>
                 <button
                   className={styles.buttonAddProduct}
-                  onClick={() => increaseQty(id)}
+                  onClick={() => handleIncreaseQuantity(id)}
                 >
                   +1
                 </button>

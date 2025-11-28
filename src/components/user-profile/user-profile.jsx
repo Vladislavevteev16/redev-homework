@@ -1,5 +1,7 @@
-import styles from "../Common/UserProfile.module.css";
 import { useState } from "react";
+import styles from "../../styles/common.module.css";
+
+const names = ["Vasya", "Petr", "Vlad", "Pasha"];
 
 export const UserProfile = () => {
   const [user, setUser] = useState({
@@ -7,16 +9,16 @@ export const UserProfile = () => {
     age: 26,
     isActive: true,
   });
-  const names = ["Vasya", "Petr", "Vlad", "Pasha"];
 
-  const randomName = () => names[Math.floor(Math.random() * names.length)];
+  const getRandomName = () => names[Math.floor(Math.random() * names.length)];
 
-  const changeName = () => setUser((user) => ({ ...user, name: randomName() }));
+  const updateName = () =>
+    setUser((user) => ({ ...user, name: getRandomName() }));
 
-  const ageIncrement = () =>
+  const handleAgeIncrement = () =>
     setUser((user) => ({ ...user, age: user.age + 1 }));
 
-  const changeActive = () =>
+  const handleChangeActive = () =>
     setUser((user) => ({ ...user, isActive: !user.isActive }));
 
   return (
@@ -34,14 +36,14 @@ export const UserProfile = () => {
         </p>
       </div>
       <div className={styles.buttonsContainer}>
-        <button onClick={changeName} className={styles.topButtons}>
+        <button onClick={updateName} className={styles.topButtons}>
           Сменить имя
         </button>
-        <button onClick={ageIncrement} className={styles.topButtons}>
+        <button onClick={handleAgeIncrement} className={styles.topButtons}>
           Увеличить возраст
         </button>
       </div>
-      <button onClick={changeActive} className={styles.bottomButton}>
+      <button onClick={handleChangeActive} className={styles.bottomButton}>
         Переключить активность
       </button>
     </div>

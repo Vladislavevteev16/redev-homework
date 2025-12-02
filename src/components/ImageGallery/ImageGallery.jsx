@@ -6,14 +6,14 @@ import { ImageCard } from "../ImageCard/ImageCard";
 import { useState, useEffect } from "react";
 
 const DEFAULT_IMAGE_COUNT = 3;
-const DEFAULT_BREAD_NAME = "affenpinscher";
+const DEFAULT_BREED_NAME = "affenpinscher";
 
 export const ImageGallery = () => {
   const [updatesCount, setUpdatesCount] = useState(0);
   const [breeds, setBreeds] = useState(null);
   const [dogImages, setDogImages] = useState([]);
   const [imageCount, setImageCount] = useState(DEFAULT_IMAGE_COUNT);
-  const [selectedBreed, setSelectedBreed] = useState(DEFAULT_BREAD_NAME);
+  const [selectedBreed, setSelectedBreed] = useState(DEFAULT_BREED_NAME);
 
   useEffect(() => {
     (async () => {

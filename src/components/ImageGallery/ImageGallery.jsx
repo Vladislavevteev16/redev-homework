@@ -1,16 +1,19 @@
 import { DOG_API } from "../../api/dog-api";
-import { Header } from "../Header/Header";
+import { Header } from "../Header/header";
 import { GalleryControls } from "../GalleryControls/GalleryControls";
 import { DogPictureList } from "../DogPictureList/DogPictureList";
 import { ImageCard } from "../ImageCard/ImageCard";
 import { useState, useEffect } from "react";
 
+const DEFAULT_IMAGE_COUNT = 3;
+const DEFAULT_BREAD_NAME = "affenpinscher";
+
 export const ImageGallery = () => {
   const [updatesCount, setUpdatesCount] = useState(0);
   const [breeds, setBreeds] = useState(null);
   const [dogImages, setDogImages] = useState([]);
-  const [imageCount, setImageCount] = useState(3);
-  const [selectedBreed, setSelectedBreed] = useState("affenpinscher");
+  const [imageCount, setImageCount] = useState(DEFAULT_IMAGE_COUNT);
+  const [selectedBreed, setSelectedBreed] = useState(DEFAULT_BREAD_NAME);
 
   useEffect(() => {
     (async () => {

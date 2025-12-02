@@ -1,7 +1,9 @@
 export const DOG_API = {
-  getAllDogs: async () => {
+  BASE_URL: "https://dog.ceo/api",
+
+  getAllDogs: async function () {
     try {
-      const response = await fetch("https://dog.ceo/api/breeds/list/all");
+      const response = await fetch(`${this.BASE_URL}/breeds/list/all`);
       if (!response.ok) {
         throw new Error("Ошибка получения списка собак");
       }
@@ -12,10 +14,10 @@ export const DOG_API = {
       console.log(error);
     }
   },
-  getRandomDogsImage: async (breed, count) => {
+  getRandomDogsImage: async function (breed, count) {
     try {
       const response = await fetch(
-        `https://dog.ceo/api/breed/${breed}/images/random/${count}`
+        `${this.BASE_URL}/breed/${breed}/images/random/${count}`
       );
       if (!response.ok)
         throw new Error("Ошибка получения случайной породы собаки");

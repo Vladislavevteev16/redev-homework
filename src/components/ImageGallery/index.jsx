@@ -1,8 +1,8 @@
 import { DOG_API } from "../../api/dog-api";
-import { Header } from "../Header/header";
-import { GalleryControls } from "../GalleryControls/GalleryControls";
-import { DogPictureList } from "../DogPictureList/DogPictureList";
-import { ImageCard } from "../ImageCard/ImageCard";
+import { Header } from "../Header";
+import { GalleryControls } from "../GalleryControls";
+import { DogPictureList } from "../DogPictureList";
+import { ImageCard } from "../ImageCard";
 import { useState, useEffect } from "react";
 
 const DEFAULT_IMAGE_COUNT = 3;

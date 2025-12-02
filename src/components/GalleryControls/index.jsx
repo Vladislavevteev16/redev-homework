@@ -1,6 +1,6 @@
-import { SelectBreed } from "./SelectBreed/SelectBreed";
-import { UpdateImage } from "./UpdateImage/UpdateImage";
-import { LoadingImage } from "./LoadingImage/LoadingImage";
+import { SelectBreed } from "./SelectBreed";
+import { UpdateImage } from "./UpdateImage";
+import { LoadingImage } from "./LoadingImage";
 import "./GalleryControls.css";
 
 export const GalleryControls = ({

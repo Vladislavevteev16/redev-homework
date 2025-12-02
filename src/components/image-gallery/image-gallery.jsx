@@ -1,0 +1,75 @@
+import { DOG_API } from "../../api/dog-api";
+import { Header } from "../header/header";
+import { GalleryControls } from "../gallery-controls/gallery-controls";
+import { GalleryImage } from "../gallery-image/gallery-image";
+import { ImageCard } from "../image-card/image-card";
+import { useState, useEffect } from "react";
+
+export const ImageGallery = () => {
+  const [updatesCount, setUpdatesCount] = useState(0);
+  const [breeds, setBreeds] = useState(null);
+  const [dogImages, setDogImages] = useState([]);
+  const [imageCount, setImageCount] = useState(3);
+  const [selectedBreed, setSelectedBreed] = useState("affenpinscher");
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const allDogs = await DOG_API.getAllDogs();
+        setBreeds(allDogs);
+        const randomImages = await DOG_API.getRandomDogsImage(
+          selectedBreed,
+          imageCount
+        );
+        setDogImages(randomImages);
+      } catch (error) {
+        console.log(error.message);
+      }
+    })();
+  }, []);
+
+  const setQuantityImages = (e) => {
+    e.preventDefault();
+    const currentValue = e.target.value;
+    if (!currentValue) return;
+
+    setImageCount(currentValue);
+  };
+
+  const setCurrentBreed = (e) => {
+    const selectedBredd = e.target.value;
+    setSelectedBreed(selectedBredd);
+  };
+
+  const handleUpdateImages = async () => {
+    try {
+      const randomDogImages = await DOG_API.getRandomDogsImage(
+        selectedBreed,
+        imageCount
+      );
+      setDogImages(randomDogImages);
+      setUpdatesCount((prev) => prev + 1);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  return (
+    <>
+      <Header countUpdate={updatesCount} />
+      <GalleryControls
+        breeds={breeds}
+        onImageCountChange={setQuantityImages}
+        imageCount={imageCount}
+        onBreedChanges={setCurrentBreed}
+        selectedBreed={selectedBreed}
+        onUpdateGallery={handleUpdateImages}
+      />
+      <GalleryImage>
+        {dogImages.map((item, index) => {
+          return <ImageCard key={index} imgUrl={item} />;
+        })}
+      </GalleryImage>
+    </>
+  );
+};

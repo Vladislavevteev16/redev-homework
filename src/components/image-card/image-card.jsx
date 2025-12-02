@@ -1,6 +1,6 @@
-import "./image-component.css";
+import "./image-card.css";
 
-export const ImageComponent = ({ imgUrl }) => {
+export const ImageCard  = ({ imgUrl }) => {
   return (
     <div className="image-wrapper">
       <img className="image-content" src={imgUrl} alt="" />

@@ -1,8 +1,8 @@
 import { DOG_API } from "../../api/dog-api";
-import { Header } from "../header/header";
-import { GalleryControls } from "../gallery-controls/gallery-controls";
-import { GalleryImage } from "../gallery-image/gallery-image";
-import { ImageCard } from "../image-card/image-card";
+import { Header } from "../Header/Header";
+import { GalleryControls } from "../GalleryControls/GalleryControls";
+import { DogPictureList } from "../DogPictureList/DogPictureList";
+import { ImageCard } from "../ImageCard/ImageCard";
 import { useState, useEffect } from "react";
 
 export const ImageGallery = () => {
@@ -65,11 +65,11 @@ export const ImageGallery = () => {
         selectedBreed={selectedBreed}
         onUpdateGallery={handleUpdateImages}
       />
-      <GalleryImage>
-        {dogImages.map((item, index) => {
-          return <ImageCard key={index} imgUrl={item} />;
+      <DogPictureList>
+        {dogImages.map((item) => {
+          return <ImageCard key={item} imgUrl={item} />;
         })}
-      </GalleryImage>
+      </DogPictureList>
     </>
   );
 };

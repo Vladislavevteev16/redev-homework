@@ -1,4 +1,4 @@
-import "./image-card.css";
+import "./ImageCard.css";
 
 export const ImageCard  = ({ imgUrl }) => {
   return (

@@ -1,4 +1,4 @@
-import { ImageGallery } from "./components/image-gallery/image-gallery";
+import { ImageGallery } from "./components/ImageGallery/ImageGallery";
 import "./App.css";
 
 function App() {

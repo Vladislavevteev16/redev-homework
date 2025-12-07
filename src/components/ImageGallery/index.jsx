@@ -44,19 +44,6 @@ export const ImageGallery = () => {
     setSelectedBreed(selectedBredd);
   };
 
-  const handleUpdateImages = async () => {
-    try {
-      const randomDogImages = await DOG_API.getRandomDogsImage(
-        selectedBreed,
-        imageCount
-      );
-      setDogImages(randomDogImages);
-      setUpdatesCount((prev) => prev + 1);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
   return (
     <>
       <Header countUpdate={updatesCount} />
@@ -66,7 +53,10 @@ export const ImageGallery = () => {
         imageCount={imageCount}
         onBreedChanges={setCurrentBreed}
         selectedBreed={selectedBreed}
-        onUpdateGallery={handleUpdateImages}
+        setDog={setDogImages}
+        setCount={setUpdatesCount}
+        dog={selectedBreed}
+        count={imageCount}
       />
       <DogPictureList>
         {dogImages.map((item) => {

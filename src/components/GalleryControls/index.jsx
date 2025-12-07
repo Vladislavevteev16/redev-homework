@@ -10,6 +10,10 @@ export const GalleryControls = ({
   selectedBreed,
   imageCount,
   onUpdateGallery,
+  setDog,
+  setCount,
+  dog,
+  count,
 }) => {
   return breeds ? (
     <div className="container">
@@ -22,6 +26,10 @@ export const GalleryControls = ({
         imagesToShow={imageCount}
         onImagesToShowChange={onImageCountChange}
         onUpdateClick={onUpdateGallery}
+        setDog={setDog}
+        setCount={setCount}
+        dog={dog}
+        count={count}
       />
     </div>
   ) : (

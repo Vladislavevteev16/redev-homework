@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { CounterButton } from "./components/CounterButton";
+import { SearchInput } from "./components/SearchInput";
+import { ItemList } from "./components/ItemList";
+import { createUserList } from "./utils/createUserList";
+import { useState, useCallback } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [userList] = useState(() => createUserList());
+  const [searchQuery, setSearchQuery] = useState("");
+  const [count, setCount] = useState(0);
+
+  const handleQueryChange = useCallback((e) => {
+    const { value } = e.target;
+    setSearchQuery(value);
+  }, []);
+
+  const handleCountIncrement = useCallback(
+    () => setCount((prev) => prev + 1),
+    []
+  );
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="main-container">
+      <SearchInput
+        handleQueryChange={handleQueryChange}
+        searchQuery={searchQuery}
+      />
+      <ItemList searchQuery={searchQuery} userList={userList} />
+      <CounterButton onClick={handleCountIncrement} count={count} />
+    </div>
+  );
 }
 
-export default App
+export default App;

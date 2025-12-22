@@ -1,7 +1,8 @@
+import { UserInfo } from "./UserInfo";
 import { useState } from "react";
 import styles from "../../styles/common.module.css";
 
-const names = ["Vasya", "Petr", "Vlad", "Pasha"];
+const nameList = ["Vasya", "Petr", "Vlad", "Pasha"];
 
 export const UserProfile = () => {
   const [user, setUser] = useState({
@@ -10,7 +11,10 @@ export const UserProfile = () => {
     isActive: true,
   });
 
-  const getRandomName = () => names[Math.floor(Math.random() * names.length)];
+  const [count, setCount] = useState(0);
+
+  const getRandomName = () =>
+    nameList[Math.floor(Math.random() * nameList.length)];
 
   const updateName = () =>
     setUser((user) => ({ ...user, name: getRandomName() }));
@@ -21,26 +25,20 @@ export const UserProfile = () => {
   const handleChangeActive = () =>
     setUser((user) => ({ ...user, isActive: !user.isActive }));
 
+  // Компонет UserInfo будет ре-рендирится только если поменяются его пропсы (user)
   return (
     <div className={`${styles.card} ${styles.bgUserProfile}`}>
       <h1>Профиль пользователя</h1>
-      <div>
-        <p>
-          <strong>Имя: {user.name}</strong>
-        </p>
-        <p>
-          <strong>Возраст: {user.age}</strong>
-        </p>
-        <p>
-          <strong>Активен: {user.isActive ? "Да" : "Нет"}</strong>
-        </p>
-      </div>
+      <UserInfo user={user} />
       <div className={styles.buttonsContainer}>
         <button onClick={updateName} className={styles.topButtons}>
           Сменить имя
         </button>
         <button onClick={handleAgeIncrement} className={styles.topButtons}>
           Увеличить возраст
+        </button>
+        <button onClick={() => setCount((prev) => prev + 1)}>
+          Counter {count}
         </button>
       </div>
       <button onClick={handleChangeActive} className={styles.bottomButton}>

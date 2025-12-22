@@ -1,3 +1,4 @@
+import { TaskItem } from "./TaskItem";
 import { useState } from "react";
 import styles from "../../styles/common.module.css";
 
@@ -24,8 +25,8 @@ export const TodoList = () => {
         <h1>Список задач</h1>
         <div className={styles.listContainer}>
           <ul>
-            {active.map((tasks, index) => (
-              <li key={index}>{tasks}</li>
+            {active.map((task, index) => (
+              <TaskItem key={`${task} - ${index} `} task={task} />
             ))}
           </ul>
         </div>

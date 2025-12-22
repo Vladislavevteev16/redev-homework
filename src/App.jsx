@@ -1,7 +1,7 @@
+import { TodoList } from "./components/TodoList/TodoList";
+import { UserProfile } from "./components/UserProfile/UserProfile";
+import { ShoppingCart } from "./components/shopping-сart/ShoppingCart";
 import "./App.css";
-import { TodoList } from "./components/todo-list/todo-list";
-import { UserProfile } from "./components/user-profile/user-profile";
-import { ShoppingCart } from "./components/shopping-сart/shopping-cart";
 
 function App() {
   return (

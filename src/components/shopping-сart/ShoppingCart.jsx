@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { CartItem } from "./CartItem";
+import { useState, useCallback } from "react";
 import styles from "../../styles/common.module.css";
 
 export const ShoppingCart = () => {
@@ -11,10 +12,12 @@ export const ShoppingCart = () => {
 
   const clearCart = () => setItem([]);
 
-  const removeItem = (itemId) =>
-    setItem((prev) => prev.filter(({ id }) => id !== itemId));
+  const removeItem = useCallback(
+    (itemId) => setItem((prev) => prev.filter(({ id }) => id !== itemId)),
+    []
+  );
 
-  const handleIncreaseQuantity = (itemId) => {
+  const handleIncreaseQuantity = useCallback((itemId) => {
     setItem((prev) =>
       prev.map((item) =>
         item.id === itemId
@@ -25,7 +28,7 @@ export const ShoppingCart = () => {
           : item
       )
     );
-  };
+  }, []);
 
   return (
     <div className={`${styles.card} ${styles.bgShoppingCart}`}>
@@ -33,20 +36,14 @@ export const ShoppingCart = () => {
       <div className={styles.cartContainer}>
         {item.map(({ id, title, count }) => {
           return (
-            <div className={styles.cart} key={id}>
-              <p>
-                {title} (Кол-во: {count})
-              </p>{" "}
-              <div className={styles.buttonsProduct}>
-                <button
-                  className={styles.buttonAddProduct}
-                  onClick={() => handleIncreaseQuantity(id)}
-                >
-                  +1
-                </button>
-                <button onClick={() => removeItem(id)}>Удалить</button>
-              </div>
-            </div>
+            <CartItem
+              key={id}
+              id={id}
+              title={title}
+              count={count}
+              handleIncreaseQuantity={handleIncreaseQuantity}
+              removeItem={removeItem}
+            />
           );
         })}
       </div>

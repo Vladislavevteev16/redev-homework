@@ -10,8 +10,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [count, setCount] = useState(0);
 
-  const handleQueryChange = useCallback((e) => {
-    const { value } = e.target;
+  const handleQueryChange = useCallback(({ target: { value } }) => {
     setSearchQuery(value);
   }, []);
 

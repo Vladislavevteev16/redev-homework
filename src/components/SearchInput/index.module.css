@@ -5,8 +5,7 @@
   font-size: 14px;
   width: 200px;
   transition: all 0.2s ease;
-  background-color: white;
-  color: #374151;
+  margin-top: 100px;
 }
 
 .input:focus {
@@ -24,3 +23,14 @@
   color: #9ca3af;
   cursor: not-allowed;
 }
+
+.light {
+  background-color: white;
+  color: #374151;
+}
+
+.dark {
+  background-color: #202124;
+  color: white;
+}
+

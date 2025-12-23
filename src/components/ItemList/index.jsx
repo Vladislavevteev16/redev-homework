@@ -1,7 +1,10 @@
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
+import { ThemeContext } from "../../context/themeContext";
 import style from "./index.module.css";
 
 export const ItemList = ({ userList, searchQuery }) => {
+  const { theme } = useContext(ThemeContext);
+
   const filteredList = useMemo(() => {
     return userList.filter(({ name, surName }) => {
       const fullName = `${name} ${surName}`;
@@ -12,7 +15,7 @@ export const ItemList = ({ userList, searchQuery }) => {
   const displayList = searchQuery ? filteredList : userList;
 
   return (
-    <div className={style.container}>
+    <div className={`${style.container} ${style[theme]}`}>
       <ul className={style.list}>
         {displayList.length ? (
           displayList.map(({ id, name, surName }) => (

@@ -1,0 +1,11 @@
+.light {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #27292d;
+}
+
+.dark {
+  background-color: #27292d;
+  color: #fff;
+  border: 1px solid #fff;
+}

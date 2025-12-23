@@ -2,12 +2,12 @@
   width: 400px;
   max-height: 400px;
   overflow-y: auto;
-  border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 0;
   margin: 0;
-  background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: 0 0 0 1px #ccc, 0 0 3px 1px rgba(0, 0, 0, 0.1);
 }
 
 .list {
@@ -23,20 +23,10 @@
   transition: background-color 0.2s ease;
   cursor: pointer;
   font-size: 14px;
-  color: #333;
-  opacity: 0;
-  transition: opacity 1s ease;
-  animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
 }
 
 .listItem:hover {
-  background-color: #f8f9fa;
+  background-color: #325a83;
 }
 
 .notFound {
@@ -73,4 +63,14 @@
 
 .container::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+.light {
+  background-color: white;
+  color: #333;
+}
+
+.dark {
+  background-color: #202124;
+  color: white;
 }

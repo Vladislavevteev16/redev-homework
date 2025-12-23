@@ -1,32 +1,18 @@
-import { CounterButton } from "./components/CounterButton";
-import { SearchInput } from "./components/SearchInput";
-import { ItemList } from "./components/ItemList";
-import { createUserList } from "./utils/createUserList";
-import { useState, useCallback } from "react";
+import { ControlsPanel } from "./components/ControlsPanel";
+import { Header } from "./components/Header";
+import { UserProfile } from "./components/UserProfile";
+import { ThemeContext } from "./context/ThemeContext";
+import { useContext } from "react";
 import "./App.css";
 
 function App() {
-  const [userList] = useState(() => createUserList());
-  const [searchQuery, setSearchQuery] = useState("");
-  const [count, setCount] = useState(0);
-
-  const handleQueryChange = useCallback(({ target: { value } }) => {
-    setSearchQuery(value);
-  }, []);
-
-  const handleCountIncrement = useCallback(
-    () => setCount((prev) => prev + 1),
-    []
-  );
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="main-container">
-      <SearchInput
-        handleQueryChange={handleQueryChange}
-        searchQuery={searchQuery}
-      />
-      <ItemList searchQuery={searchQuery} userList={userList} />
-      <CounterButton onClick={handleCountIncrement} count={count} />
+    <div className={`main-container ${theme === "light" ? "light" : "dark"}`}>
+      <ControlsPanel />
+      <Header />
+      <UserProfile />
     </div>
   );
 }

@@ -1,17 +1,26 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 .main-container {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.dark {
+  background-color: #27292d;
+  color: beige;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #27292d;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

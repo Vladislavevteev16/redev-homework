@@ -2,6 +2,7 @@ import { CounterButton } from "./components/CounterButton";
 import { SearchInput } from "./components/SearchInput";
 import { ItemList } from "./components/ItemList";
 import { createUserList } from "./utils/createUserList";
+import { WithRenderTracker } from "./components/ItemList";
 import { useState, useCallback } from "react";
 import "./App.css";
 
@@ -26,7 +27,8 @@ function App() {
         handleQueryChange={handleQueryChange}
         searchQuery={searchQuery}
       />
-      <ItemList searchQuery={searchQuery} userList={userList} />
+      {/* <ItemList searchQuery={searchQuery} userList={userList} /> */}
+      <WithRenderTracker searchQuery={searchQuery} userList={userList} />
       <CounterButton onClick={handleCountIncrement} count={count} />
     </div>
   );

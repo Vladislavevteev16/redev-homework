@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { withRenderTracker } from "../withRenderTracker/withRenderTracker";
 import style from "./index.module.css";
 
 export const ItemList = ({ userList, searchQuery }) => {
@@ -27,3 +28,5 @@ export const ItemList = ({ userList, searchQuery }) => {
     </div>
   );
 };
+
+export const WithRenderTracker = withRenderTracker(ItemList);

@@ -1,7 +1,10 @@
 import { useContext } from "react";
+
 import { ThemeContext } from "../../context/ThemeContext";
 import { LanguageContext } from "../../context/LanguageContext";
+
 import { TRANSLATIONS } from "../../constans/translations";
+
 import style from "./index.module.css";
 
 export const ControlsPanel = () => {

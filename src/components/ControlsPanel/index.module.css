@@ -1,11 +1,11 @@
 .buttonsContainer {
-  width: 330px;
+  width: 450px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  margin-left: 900px;
+  margin-left: 700px;
 }
 
 button {
@@ -14,6 +14,15 @@ button {
   border: 1px solid #27292d;
   color: #27292d;
   font-size: 14px;
-  margin: 0 auto;
   padding: 10px;
+}
+
+select {
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 1px solid #27292d;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  color: #27292d;
 }

@@ -1,13 +1,19 @@
+import { useState } from "react";
+
+import { MyForm } from "./components/MyForm";
+import { Modal } from "./components/Modal";
 
 import "./App.css";
 
 function App() {
- 
+  const [active, setActive] = useState(false);
+  const [data, setData] = useState(null);
 
   return (
-    <div className="main-container">
-     
-    </div>
+    <>
+      <MyForm setData={setData} setActive={setActive} />
+      {active && <Modal setActive={setActive} data={data} />}
+    </>
   );
 }
 

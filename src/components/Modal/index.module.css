@@ -1,0 +1,23 @@
+.modalContainer {
+  width: 50%;
+  height: 50vh;
+  background-color: rgb(214, 214, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+}
+
+.modalContainer p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}

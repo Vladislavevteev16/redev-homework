@@ -1,0 +1,40 @@
+.mainContainer {
+  width: 600px;
+  height: 620px;
+  background-color: #eeeef0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.mainContainer :global(.ant-form-item-explain-error) {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 300px;
+  text-align: start;
+}
+
+.mainContainer :global(.ant-form-item) {
+  width: 100%;
+  margin-bottom: 15px;
+  height: 60px;
+}
+
+.mainContainer :global(.ant-btn) {
+  margin-top: 15px;
+  width: 100%;
+  background-color: rgb(55, 55, 131);
+  color: aliceblue;
+}
+
+.mainContainer :global(.ant-space-compact) {
+  display: block;
+}
+
+.mainContainer :global(.ant-picker) {
+  display: block;
+}
